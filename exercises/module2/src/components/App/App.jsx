@@ -3,7 +3,10 @@ import Button from "../Button/Button";
 import {useState} from "react";
 
 const App = () => {
-  const [ counter, setCounter ] = useState(0)
+  const [ counter, setCounter ] = useState(JSON.parse(localStorage.getItem("counter")))
+
+  localStorage.setItem("counter", JSON.stringify(counter));
+
 
   const changeCounter = (delta) => setCounter(counter + delta);
 
