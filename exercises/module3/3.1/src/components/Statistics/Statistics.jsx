@@ -1,4 +1,4 @@
-import StatisticLine from "./StatisticLine";
+import StatisticLine from "components/Statistics/StatisticLine";
 
 const Statistics = ({good, neutral, bad}) => {
   const sum = good + neutral + bad;
