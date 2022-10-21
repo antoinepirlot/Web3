@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import Person from "./components/Person/Person";
 import Filter from "./components/Filter/Filter";
 import axios from "axios";
+import personService from "./services/persons";
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -33,6 +34,7 @@ const App = () => {
       number: newNumber
     }
     persons.push(newPerson);
+    personService.createOne(newPerson);
     setPersons(persons);
     setNewName("");
     setNewNumber("");
