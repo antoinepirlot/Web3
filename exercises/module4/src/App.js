@@ -1,18 +1,21 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import Person from "./components/Person/Person";
 import Filter from "./components/Filter/Filter";
+import axios from "axios";
 
 const App = () => {
-  const [persons, setPersons] = useState([
-    {
-      id: 1,
-      name: 'Arto Hellas',
-      number: "040-1234567"
-    }
-  ])
-  const [newName, setNewName] = useState('')
+  const [persons, setPersons] = useState([]);
+  const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState("");
   const [filter, setFilter] = useState("");
+
+  const hook = () => {
+    axios.get("http://localhost:3001/persons").then(response => {
+      setPersons(response.data);
+    });
+  };
+
+  useEffect(hook, []);
 
   const personsToShow = filter === ""
       ? persons
