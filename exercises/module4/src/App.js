@@ -33,11 +33,11 @@ const App = () => {
       name: newName,
       number: newNumber
     }
-    persons.push(newPerson);
-    personService.createOne(newPerson);
-    setPersons(persons);
-    setNewName("");
-    setNewNumber("");
+    personService.createOne(newPerson).then(returnedPerson => {
+      setPersons(persons.concat(returnedPerson))
+      setNewName("");
+      setNewNumber("");
+    });
   }
 
   const handleNameChange = (event) => {
