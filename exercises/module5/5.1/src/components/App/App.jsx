@@ -1,5 +1,5 @@
 import Button from "../Button/Button";
-import {Context as CounterContext} from "../../contexts/CounterContext";
+import {Context as CounterContext} from "../../contexts/counterContext/ProviderWrapper";
 import {useContext} from "react";
 
 function App() {
